@@ -31,5 +31,6 @@
 	<modules>
 		<module>base-rest</module>
 		<module>rest-support</module>
+		<module>service-impl</module>
 	</modules>
 </project>
