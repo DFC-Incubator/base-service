@@ -15,6 +15,8 @@
 	<beans:import resource="classpath:jargon-beans.xml" />
 
 	<context:component-scan base-package="org.irods.jargon.rest.base" />
+	 <!-- to activate annotations in beans already registered in the ApplicationContext -->
+    <context:annotation-config />
 
 </beans:beans>
  

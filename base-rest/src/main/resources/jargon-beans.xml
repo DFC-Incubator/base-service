@@ -22,7 +22,6 @@
 		<beans:constructor-arg ref="irodsSession" />
 	</beans:bean>
 
-	
 	<beans:bean id="restConfiguration"
 		class="org.irods.jargon.rest.configuration.RestConfiguration">
 		<beans:property name="irodsHost" value="${irods.host}" />
@@ -59,16 +58,10 @@
 
 	</beans:bean>
 	
-	<beans:bean id="springFilter" class="org.irods.jargon.rest.auth.BasicAuthFilter">
-         <beans:property name="irodsAccessObjectFactory" ref="irodsAccessObjectFactory" />
-         <beans:property name="restConfiguration" ref="restConfiguration" />
-    </beans:bean>
-    
     <beans:bean id="startupConfigurator" class="org.irods.jargon.rest.configuration.StartupConfigurator" init-method="init">
     	<beans:property name="irodsSession" ref="irodsSession" />
     	<beans:property name="irodsAccessObjectFactory" ref="irodsAccessObjectFactory" />
          <beans:property name="restConfiguration" ref="restConfiguration" />
     </beans:bean>
-
 
 </beans:beans>

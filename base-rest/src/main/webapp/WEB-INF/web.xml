@@ -15,20 +15,21 @@
 		<param-value>contentType</param-value>
 	</context-param>
 	
-	<context-param>
-        <param-name>resteasy.providers</param-name>
-        <param-value>org.irods.jargon.dataone.exceptions.NotFoundExceptionMapper</param-value>
-	</context-param>
-
-	 <filter>
-	   <filter-name>springFilter</filter-name>
-	   <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-	</filter>
-
-	<filter-mapping>
-	   <filter-name>springFilter</filter-name>
-	   <servlet-name>rest</servlet-name>
-	</filter-mapping>
+	  <!-- Spring Security -->
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+ 
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
+ 
 
 	<!-- security measure to combat XXE attacks - see http://docs.jboss.org/resteasy/docs/2.3.6.Final/userguide/html/Content_Marshalling_Providers.html -->
 	<context-param>
