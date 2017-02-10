@@ -34,4 +34,20 @@ public class CollectionApi {
 		return collectionApiService.collectionListing(absoluteLogicalPath,
 				securityContext);
 	}
+
+	/**
+	 * @return the collectionApiService
+	 */
+	public CollectionApiService getCollectionApiService() {
+		return collectionApiService;
+	}
+
+	/**
+	 * @param collectionApiService
+	 *            the collectionApiService to set
+	 */
+	public void setCollectionApiService(
+			CollectionApiService collectionApiService) {
+		this.collectionApiService = collectionApiService;
+	}
 }
