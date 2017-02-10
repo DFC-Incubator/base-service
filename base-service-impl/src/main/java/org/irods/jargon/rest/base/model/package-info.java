@@ -6,4 +6,4 @@
  * @author mconway
  *
  */
-package org.irods.jargon.rest.base.domain;
+package org.irods.jargon.rest.base.model;
