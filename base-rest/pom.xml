@@ -18,12 +18,12 @@
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.irods.jargon</groupId>
+				<groupId>org.irods</groupId>
 				<artifactId>rest-support</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.irods.jargon</groupId>
+				<groupId>org.irods</groupId>
 				<artifactId>base-service-impl</artifactId>
 				<version>${project.version}</version>
 			</dependency>
