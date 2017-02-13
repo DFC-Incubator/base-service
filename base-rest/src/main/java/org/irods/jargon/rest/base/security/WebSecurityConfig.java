@@ -6,6 +6,7 @@ package org.irods.jargon.rest.base.security;
 import org.irods.jargon.core.connection.IRODSSession;
 import org.irods.jargon.core.pub.IRODSAccessObjectFactory;
 import org.irods.jargon.rest.configuration.RestConfiguration;
+import org.irods.jargon.rest.security.IrodsAuthenticationProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	private IRODSSession irodsSession;
 	@Autowired
 	private IRODSAccessObjectFactory irodsAccessObjectFactory;
+	@Autowired
+	private IrodsAuthenticationProvider irodsAuthenticationProvider;
 
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
@@ -77,13 +80,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		this.irodsAccessObjectFactory = irodsAccessObjectFactory;
 	}
 
-	/**
-	 * @return the log
-	 */
-	public Logger getLog() {
-		return log;
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -95,7 +91,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		log.info("configure()");
-		http.authorizeRequests().anyRequest().authenticated().and().httpBasic();
+
+		http.authenticationProvider(irodsAuthenticationProvider)
+				.authorizeRequests().anyRequest().authenticated().and()
+				.httpBasic();
+	}
+
+	/**
+	 * @return the irodsAuthenticationProvider
+	 */
+	public IrodsAuthenticationProvider getIrodsAuthenticationProvider() {
+		return irodsAuthenticationProvider;
+	}
+
+	/**
+	 * @param irodsAuthenticationProvider
+	 *            the irodsAuthenticationProvider to set
+	 */
+	public void setIrodsAuthenticationProvider(
+			IrodsAuthenticationProvider irodsAuthenticationProvider) {
+		this.irodsAuthenticationProvider = irodsAuthenticationProvider;
 	}
 
 }

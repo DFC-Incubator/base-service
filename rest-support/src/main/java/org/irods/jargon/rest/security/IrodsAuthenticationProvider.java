@@ -17,6 +17,7 @@ import org.springframework.security.authentication.AuthenticationServiceExceptio
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.stereotype.Component;
 
 /**
  * Spring security authentication provider for iRODS
@@ -24,6 +25,7 @@ import org.springframework.security.core.AuthenticationException;
  * @author mconway
  *
  */
+@Component
 public class IrodsAuthenticationProvider implements AuthenticationProvider {
 
 	@Autowired
