@@ -11,8 +11,11 @@
         http://www.springframework.org/schema/context 
 		http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
+
+	<context:property-placeholder  location="classpath:test-irods-rest.properties" />
+
 	<!-- Import basic SpringMVC Resteasy integration -->
-	<beans:import resource="classpath:jargon-beans.xml" />
+	<beans:import resource="classpath:test-jargon-beans.xml" />
 
 	<context:component-scan base-package="org.irods.jargon.rest" />
 	 <!-- to activate annotations in beans already registered in the ApplicationContext -->
