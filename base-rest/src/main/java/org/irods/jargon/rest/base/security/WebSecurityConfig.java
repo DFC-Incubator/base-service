@@ -7,12 +7,15 @@ import org.irods.jargon.core.connection.IRODSSession;
 import org.irods.jargon.core.pub.IRODSAccessObjectFactory;
 import org.irods.jargon.rest.configuration.RestConfiguration;
 import org.irods.jargon.rest.security.IrodsAuthenticationProvider;
+import org.irods.jargon.rest.security.IrodsBasicAuthEntryPoint;
+import org.irods.jargon.rest.utils.RestConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 
 /**
  * Spring security configurer
@@ -31,6 +34,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	private IRODSAccessObjectFactory irodsAccessObjectFactory;
 	@Autowired
 	private IrodsAuthenticationProvider irodsAuthenticationProvider;
+	@Autowired
+	private IrodsBasicAuthEntryPoint irodsBasicAuthEntryPoint;
 
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
@@ -94,7 +99,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http.authenticationProvider(irodsAuthenticationProvider)
 				.authorizeRequests().anyRequest().authenticated().and()
-				.httpBasic();
+				.httpBasic().realmName(RestConstants.DFC_REALM)
+				.authenticationEntryPoint(irodsBasicAuthEntryPoint).and()
+				.sessionManagement()
+				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 	}
 
 	/**
@@ -111,6 +119,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	public void setIrodsAuthenticationProvider(
 			IrodsAuthenticationProvider irodsAuthenticationProvider) {
 		this.irodsAuthenticationProvider = irodsAuthenticationProvider;
+	}
+
+	/**
+	 * @return the irodsBasicAuthEntryPoint
+	 */
+	public IrodsBasicAuthEntryPoint getIrodsBasicAuthEntryPoint() {
+		return irodsBasicAuthEntryPoint;
+	}
+
+	/**
+	 * @param irodsBasicAuthEntryPoint
+	 *            the irodsBasicAuthEntryPoint to set
+	 */
+	public void setIrodsBasicAuthEntryPoint(
+			IrodsBasicAuthEntryPoint irodsBasicAuthEntryPoint) {
+		this.irodsBasicAuthEntryPoint = irodsBasicAuthEntryPoint;
 	}
 
 }

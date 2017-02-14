@@ -29,6 +29,14 @@ public class WebSecurityConfigTest {
 	}
 
 	/**
+	 * Tests general spring wiring to bring in web security config spring assets
+	 */
+	@Test
+	public void testAuthenticate() {
+
+	}
+
+	/**
 	 * @return the webSecurityConfig
 	 */
 	public WebSecurityConfig getWebSecurityConfig() {

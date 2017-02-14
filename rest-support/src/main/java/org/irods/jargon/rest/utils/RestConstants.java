@@ -13,5 +13,6 @@ public class RestConstants {
 
 	public static final String AUTH_RESULT_KEY = "authResult";
 	public static final String BASIC_AUTH_HEADER = "Authorization";
+	public static final String DFC_REALM = "DFC-REALM";
 
 }
