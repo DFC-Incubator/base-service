@@ -30,7 +30,6 @@
         <dispatcher>ERROR</dispatcher>
     </filter-mapping>
  
-
 	<!-- security measure to combat XXE attacks - see http://docs.jboss.org/resteasy/docs/2.3.6.Final/userguide/html/Content_Marshalling_Providers.html -->
 	<context-param>
 		<param-name>resteasy.document.expand.entity.references</param-name>
