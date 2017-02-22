@@ -28,8 +28,7 @@
 			</roles>
 		</developer>
 	</developers>
-<repositories>
-		
+	<repositories>
 		<repository>
 			<id>renci.repository</id>
 			<name>renci.repository</name>
@@ -40,12 +39,11 @@
 				<checksumPolicy>warn</checksumPolicy>
 			</releases>
 			<snapshots>
-				<enabled>false</enabled>
+				<enabled>true</enabled>
 				<updatePolicy>never</updatePolicy>
 				<checksumPolicy>fail</checksumPolicy>
 			</snapshots>
 		</repository>
-		
 	</repositories>
 	<dependencyManagement>
 		<dependencies>
