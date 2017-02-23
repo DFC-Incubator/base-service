@@ -6,6 +6,7 @@ package org.irods.jargon.rest.base.security;
 import org.irods.jargon.core.connection.IRODSSession;
 import org.irods.jargon.core.pub.IRODSAccessObjectFactory;
 import org.irods.jargon.rest.configuration.RestConfiguration;
+import org.irods.jargon.rest.security.ConnectionCloseFilter;
 import org.irods.jargon.rest.security.IrodsAuthenticationProvider;
 import org.irods.jargon.rest.security.IrodsBasicAuthEntryPoint;
 import org.irods.jargon.rest.utils.RestConstants;
@@ -16,6 +17,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.context.SecurityContextPersistenceFilter;
 
 /**
  * Spring security configurer
@@ -36,6 +38,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	private IrodsAuthenticationProvider irodsAuthenticationProvider;
 	@Autowired
 	private IrodsBasicAuthEntryPoint irodsBasicAuthEntryPoint;
+	@Autowired
+	private ConnectionCloseFilter connectionCloseFilter;
 
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
@@ -103,6 +107,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.authenticationEntryPoint(irodsBasicAuthEntryPoint).and()
 				.sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+		http.addFilterBefore(connectionCloseFilter,
+				SecurityContextPersistenceFilter.class);
 	}
 
 	/**

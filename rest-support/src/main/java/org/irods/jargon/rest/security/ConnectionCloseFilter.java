@@ -64,9 +64,10 @@ public class ConnectionCloseFilter implements Filter {
 		log.info("doFilter()");
 
 		try {
+			log.info(">>>>passing chain");
 			chain.doFilter(request, response);
 		} finally {
-			log.info("closing!");
+			log.info(">>>>>>>>closing!");
 			irodsAccessObjectFactory.closeSessionAndEatExceptions();
 		}
 	}
