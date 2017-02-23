@@ -8,6 +8,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
+import org.irods.jargon.rest.exception.IrodsRestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +23,7 @@ public class ServerApi {
 	@Path("/ping")
 	@Produces({ "application/json", "application/xml" })
 	public Response server(@QueryParam("midTierOnly") Boolean midTierOnly,
-			@Context SecurityContext securityContext) throws NotFoundException {
+			@Context SecurityContext securityContext) throws IrodsRestException {
 		return serverApiService.server(midTierOnly, securityContext);
 	}
 
