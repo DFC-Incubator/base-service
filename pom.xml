@@ -54,7 +54,7 @@
 				<updatePolicy>always</updatePolicy>
 				<checksumPolicy>warn</checksumPolicy>
 			</snapshots>
-</repository>
+		</repository>
 	</repositories>
 	<dependencyManagement>
 		<dependencies>
