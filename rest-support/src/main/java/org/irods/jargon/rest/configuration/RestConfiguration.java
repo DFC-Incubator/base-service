@@ -6,8 +6,14 @@ package org.irods.jargon.rest.configuration;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import org.irods.jargon.core.connection.AuthScheme;
 import org.irods.jargon.core.connection.ClientServerNegotiationPolicy;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 
 /**
  * Pojo containing configuration information
@@ -15,6 +21,8 @@ import org.irods.jargon.core.connection.ClientServerNegotiationPolicy;
  * @author Mike Conway - DICE (www.irods.org)
  * 
  */
+@Component
+@PropertySource("file:///etc/irods-ext/irods-rest.properties")
 public class RestConfiguration {
 
 	private String irodsHost = "";
@@ -22,6 +30,17 @@ public class RestConfiguration {
 	private String irodsZone = "";
 	private String defaultStorageResource = "";
 	private String realm = "irods-rest";
+
+	@Autowired
+	Environment env;
+
+	@PostConstruct
+	public void init() {
+		setIrodsHost(env.getProperty("irods.host"));
+		setIrodsPort(Integer.valueOf(env.getProperty("irods.port")));
+		setIrodsZone(env.getProperty("irods.zone"));
+		setDefaultStorageResource(env.getProperty("default.storage.resource"));
+	}
 
 	/**
 	 * Utilize the read ahead and write behind streams in jargon to optimize
@@ -232,43 +251,34 @@ public class RestConfiguration {
 			builder.append("irodsZone=").append(irodsZone).append(", ");
 		}
 		if (defaultStorageResource != null) {
-			builder.append("defaultStorageResource=")
-					.append(defaultStorageResource).append(", ");
+			builder.append("defaultStorageResource=").append(defaultStorageResource).append(", ");
 		}
 		if (realm != null) {
 			builder.append("realm=").append(realm).append(", ");
 		}
-		builder.append("utilizePackingStreams=").append(utilizePackingStreams)
-				.append(", ");
+		builder.append("utilizePackingStreams=").append(utilizePackingStreams).append(", ");
 		if (authType != null) {
 			builder.append("authType=").append(authType).append(", ");
 		}
 		builder.append("allowCors=").append(allowCors).append(", ");
 		if (corsOrigins != null) {
-			builder.append("corsOrigins=")
-					.append(corsOrigins.subList(0,
-							Math.min(corsOrigins.size(), maxLen))).append(", ");
+			builder.append("corsOrigins=").append(corsOrigins.subList(0, Math.min(corsOrigins.size(), maxLen)))
+					.append(", ");
 		}
 		if (corsMethods != null) {
-			builder.append("corsMethods=")
-					.append(corsMethods.subList(0,
-							Math.min(corsMethods.size(), maxLen))).append(", ");
+			builder.append("corsMethods=").append(corsMethods.subList(0, Math.min(corsMethods.size(), maxLen)))
+					.append(", ");
 		}
-		builder.append("corsAllowCredentials=").append(corsAllowCredentials)
-				.append(", ");
+		builder.append("corsAllowCredentials=").append(corsAllowCredentials).append(", ");
 		if (corsAllowedHeaders != null) {
 			builder.append("corsAllowedHeaders=")
-					.append(corsAllowedHeaders.subList(0,
-							Math.min(corsAllowedHeaders.size(), maxLen)))
-					.append(", ");
+					.append(corsAllowedHeaders.subList(0, Math.min(corsAllowedHeaders.size(), maxLen))).append(", ");
 		}
 		if (webInterfaceURL != null) {
-			builder.append("webInterfaceURL=").append(webInterfaceURL)
-					.append(", ");
+			builder.append("webInterfaceURL=").append(webInterfaceURL).append(", ");
 		}
 		if (sslNegotiationPolicy != null) {
-			builder.append("sslNegotiationPolicy=")
-					.append(sslNegotiationPolicy).append(", ");
+			builder.append("sslNegotiationPolicy=").append(sslNegotiationPolicy).append(", ");
 		}
 		builder.append("computeChecksum=").append(computeChecksum).append("]");
 		return builder.toString();
@@ -340,6 +350,14 @@ public class RestConfiguration {
 	 */
 	public void setComputeChecksum(boolean computeChecksum) {
 		this.computeChecksum = computeChecksum;
+	}
+
+	public Environment getEnv() {
+		return env;
+	}
+
+	public void setEnv(Environment env) {
+		this.env = env;
 	}
 
 }

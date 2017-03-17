@@ -11,7 +11,6 @@ import org.irods.jargon.core.pub.IRODSAccessObjectFactory;
 import org.irods.jargon.rest.configuration.RestConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -28,11 +27,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class IrodsAuthenticationProvider implements AuthenticationProvider {
 
-	@Autowired
+	// @Autowired
 	private RestConfiguration restConfiguration;
-	@Autowired
+	// @Autowired
 	private IRODSSession irodsSession;
-	@Autowired
+	// @Autowired
 	private IRODSAccessObjectFactory irodsAccessObjectFactory;
 
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
@@ -44,8 +43,7 @@ public class IrodsAuthenticationProvider implements AuthenticationProvider {
 	 * authenticate(org.springframework.security.core.Authentication)
 	 */
 	@Override
-	public Authentication authenticate(Authentication authentication)
-			throws AuthenticationException {
+	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
 		log.info("authenticate()");
 		if (authentication == null) {
@@ -57,18 +55,14 @@ public class IrodsAuthenticationProvider implements AuthenticationProvider {
 		Authentication authenticatedCredential;
 
 		try {
-			IRODSAccount irodsAccount = RestAuthUtils
-					.getIRODSAccountFromUserPassword(authentication
-							.getPrincipal().toString(), password,
-							restConfiguration);
+			IRODSAccount irodsAccount = RestAuthUtils.getIRODSAccountFromUserPassword(
+					authentication.getPrincipal().toString(), password, restConfiguration);
 
 			log.info("authenticating:{}", irodsAccount);
 
 			try {
-				AuthResponse authResponse = irodsAccessObjectFactory
-						.authenticateIRODSAccount(irodsAccount);
-				authenticatedCredential = new IrodsAuthentication(irodsAccount,
-						authResponse);
+				AuthResponse authResponse = irodsAccessObjectFactory.authenticateIRODSAccount(irodsAccount);
+				authenticatedCredential = new IrodsAuthentication(irodsAccount, authResponse);
 				authenticatedCredential.setAuthenticated(true);
 			} catch (Exception e) {
 				log.warn("authentication failure", e);
@@ -76,8 +70,7 @@ public class IrodsAuthenticationProvider implements AuthenticationProvider {
 				authResponse.setAuthenticatingIRODSAccount(irodsAccount);
 				authResponse.setAuthenticatedIRODSAccount(irodsAccount);
 				authResponse.setSuccessful(false);
-				authenticatedCredential = new IrodsAuthentication(irodsAccount,
-						authResponse);
+				authenticatedCredential = new IrodsAuthentication(irodsAccount, authResponse);
 				authenticatedCredential.setAuthenticated(false);
 			}
 
@@ -137,8 +130,7 @@ public class IrodsAuthenticationProvider implements AuthenticationProvider {
 	 * @param irodsAccessObjectFactory
 	 *            the irodsAccessObjectFactory to set
 	 */
-	public void setIrodsAccessObjectFactory(
-			IRODSAccessObjectFactory irodsAccessObjectFactory) {
+	public void setIrodsAccessObjectFactory(IRODSAccessObjectFactory irodsAccessObjectFactory) {
 		this.irodsAccessObjectFactory = irodsAccessObjectFactory;
 	}
 

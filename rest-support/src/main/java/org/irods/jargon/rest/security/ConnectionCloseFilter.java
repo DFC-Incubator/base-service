@@ -31,7 +31,7 @@ public class ConnectionCloseFilter implements Filter {
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 	@Autowired
 	private RestConfiguration restConfiguration;
-	@Autowired
+	// @Autowired
 	private IRODSAccessObjectFactory irodsAccessObjectFactory;
 
 	/**
@@ -57,8 +57,7 @@ public class ConnectionCloseFilter implements Filter {
 	 * javax.servlet.ServletResponse, javax.servlet.FilterChain)
 	 */
 	@Override
-	public void doFilter(final ServletRequest request,
-			final ServletResponse response, final FilterChain chain)
+	public void doFilter(final ServletRequest request, final ServletResponse response, final FilterChain chain)
 			throws IOException, ServletException {
 
 		log.info("doFilter()");
@@ -98,8 +97,7 @@ public class ConnectionCloseFilter implements Filter {
 	 * @param irodsAccessObjectFactory
 	 *            the irodsAccessObjectFactory to set
 	 */
-	public void setIrodsAccessObjectFactory(
-			final IRODSAccessObjectFactory irodsAccessObjectFactory) {
+	public void setIrodsAccessObjectFactory(final IRODSAccessObjectFactory irodsAccessObjectFactory) {
 		this.irodsAccessObjectFactory = irodsAccessObjectFactory;
 	}
 

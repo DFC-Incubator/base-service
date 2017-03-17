@@ -30,11 +30,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private RestConfiguration restConfiguration;
-	@Autowired
+	// @Autowired
 	private IRODSSession irodsSession;
-	@Autowired
+	// @Autowired
 	private IRODSAccessObjectFactory irodsAccessObjectFactory;
-	@Autowired
+	// @Autowired
 	private IrodsAuthenticationProvider irodsAuthenticationProvider;
 	@Autowired
 	private IrodsBasicAuthEntryPoint irodsBasicAuthEntryPoint;
@@ -84,8 +84,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	 * @param irodsAccessObjectFactory
 	 *            the irodsAccessObjectFactory to set
 	 */
-	public void setIrodsAccessObjectFactory(
-			IRODSAccessObjectFactory irodsAccessObjectFactory) {
+	public void setIrodsAccessObjectFactory(IRODSAccessObjectFactory irodsAccessObjectFactory) {
 		this.irodsAccessObjectFactory = irodsAccessObjectFactory;
 	}
 
@@ -101,14 +100,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		log.info("configure()");
 
-		http.authenticationProvider(irodsAuthenticationProvider)
-				.authorizeRequests().anyRequest().authenticated().and()
-				.httpBasic().realmName(RestConstants.DFC_REALM)
-				.authenticationEntryPoint(irodsBasicAuthEntryPoint).and()
-				.sessionManagement()
-				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-		http.addFilterBefore(connectionCloseFilter,
-				SecurityContextPersistenceFilter.class);
+		http.authenticationProvider(irodsAuthenticationProvider).authorizeRequests().anyRequest().authenticated().and()
+				.httpBasic().realmName(RestConstants.DFC_REALM).authenticationEntryPoint(irodsBasicAuthEntryPoint).and()
+				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+		http.addFilterBefore(connectionCloseFilter, SecurityContextPersistenceFilter.class);
 	}
 
 	/**
@@ -122,8 +117,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	 * @param irodsAuthenticationProvider
 	 *            the irodsAuthenticationProvider to set
 	 */
-	public void setIrodsAuthenticationProvider(
-			IrodsAuthenticationProvider irodsAuthenticationProvider) {
+	public void setIrodsAuthenticationProvider(IrodsAuthenticationProvider irodsAuthenticationProvider) {
 		this.irodsAuthenticationProvider = irodsAuthenticationProvider;
 	}
 
@@ -138,8 +132,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	 * @param irodsBasicAuthEntryPoint
 	 *            the irodsBasicAuthEntryPoint to set
 	 */
-	public void setIrodsBasicAuthEntryPoint(
-			IrodsBasicAuthEntryPoint irodsBasicAuthEntryPoint) {
+	public void setIrodsBasicAuthEntryPoint(IrodsBasicAuthEntryPoint irodsBasicAuthEntryPoint) {
 		this.irodsBasicAuthEntryPoint = irodsBasicAuthEntryPoint;
 	}
 
