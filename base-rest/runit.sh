@@ -9,6 +9,6 @@ else
    echo "No cert to import"
 fi
 
-echo "running catalina"
-catalina.sh run
+echo "running rest"
+java -jar base-rest-4.2.1.1-SNAPSHOT.jar
 
