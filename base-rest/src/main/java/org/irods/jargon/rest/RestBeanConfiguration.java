@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.irods.jargon.rest;
 
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * Additional Spring Configuration for REST
- * 
+ *
  * @author mconway
  *
  */

@@ -1,59 +1,83 @@
 package org.irods.jargon.rest.base.model;
 
 import java.util.Objects;
-import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2017-02-10T11:17:25.080-05:00")
+/**
+ * Avu
+ */
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.SpringCodegen", date = "2017-03-21T10:48:32.605-04:00")
+
 public class Avu   {
-  
   private String attribute = null;
+
   private String value = null;
+
   private String unit = null;
 
-  /**
+  public Avu attribute(String attribute) {
+    this.attribute = attribute;
+    return this;
+  }
+
+   /**
    * avu attribute part
-   **/
-  
-  @JsonProperty("attribute")
+   * @return attribute
+  **/
+  @ApiModelProperty(value = "avu attribute part")
   public String getAttribute() {
     return attribute;
   }
+
   public void setAttribute(String attribute) {
     this.attribute = attribute;
   }
 
-  /**
+  public Avu value(String value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
    * avu value part
-   **/
-  
-  @JsonProperty("value")
+   * @return value
+  **/
+  @ApiModelProperty(value = "avu value part")
   public String getValue() {
     return value;
   }
+
   public void setValue(String value) {
     this.value = value;
   }
 
-  /**
+  public Avu unit(String unit) {
+    this.unit = unit;
+    return this;
+  }
+
+   /**
    * avu unit part
-   **/
-  
-  @JsonProperty("unit")
+   * @return unit
+  **/
+  @ApiModelProperty(value = "avu unit part")
   public String getUnit() {
     return unit;
   }
+
   public void setUnit(String unit) {
     this.unit = unit;
   }
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -61,9 +85,9 @@ public class Avu   {
       return false;
     }
     Avu avu = (Avu) o;
-    return Objects.equals(attribute, avu.attribute) &&
-        Objects.equals(value, avu.value) &&
-        Objects.equals(unit, avu.unit);
+    return Objects.equals(this.attribute, avu.attribute) &&
+        Objects.equals(this.value, avu.value) &&
+        Objects.equals(this.unit, avu.unit);
   }
 
   @Override
@@ -87,7 +111,7 @@ public class Avu   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

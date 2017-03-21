@@ -15,12 +15,12 @@ public class Application {
 
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
+	public CommandLineRunner commandLineRunner(final ApplicationContext ctx) {
 		return args -> {
 
 			log.info("Dump of beans loaded by Spring Boot:");

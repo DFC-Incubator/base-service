@@ -11,6 +11,7 @@ import org.irods.jargon.core.pub.IRODSAccessObjectFactory;
 import org.irods.jargon.rest.configuration.RestConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -27,11 +28,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class IrodsAuthenticationProvider implements AuthenticationProvider {
 
-	// @Autowired
+	@Autowired
 	private RestConfiguration restConfiguration;
-	// @Autowired
+	@Autowired
 	private IRODSSession irodsSession;
-	// @Autowired
+	@Autowired
 	private IRODSAccessObjectFactory irodsAccessObjectFactory;
 
 	private final Logger log = LoggerFactory.getLogger(this.getClass());

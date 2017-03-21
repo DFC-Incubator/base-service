@@ -1,33 +1,43 @@
 package org.irods.jargon.rest.base.model;
 
 import java.util.Objects;
-import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2017-02-10T11:17:25.080-05:00")
+/**
+ * PathComponent
+ */
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.SpringCodegen", date = "2017-03-21T10:48:32.605-04:00")
+
 public class PathComponent   {
-  
   private String parthPart = null;
 
-  /**
+  public PathComponent parthPart(String parthPart) {
+    this.parthPart = parthPart;
+    return this;
+  }
+
+   /**
    * part of a path
-   **/
-  
-  @JsonProperty("parthPart")
+   * @return parthPart
+  **/
+  @ApiModelProperty(value = "part of a path")
   public String getParthPart() {
     return parthPart;
   }
+
   public void setParthPart(String parthPart) {
     this.parthPart = parthPart;
   }
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -35,7 +45,7 @@ public class PathComponent   {
       return false;
     }
     PathComponent pathComponent = (PathComponent) o;
-    return Objects.equals(parthPart, pathComponent.parthPart);
+    return Objects.equals(this.parthPart, pathComponent.parthPart);
   }
 
   @Override
@@ -57,7 +67,7 @@ public class PathComponent   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

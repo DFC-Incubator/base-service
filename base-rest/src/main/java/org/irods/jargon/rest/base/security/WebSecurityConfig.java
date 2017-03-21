@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.irods.jargon.rest.base.security;
 
@@ -21,7 +21,7 @@ import org.springframework.security.web.context.SecurityContextPersistenceFilter
 
 /**
  * Spring security configurer
- * 
+ *
  * @author mconway
  *
  */
@@ -30,11 +30,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private RestConfiguration restConfiguration;
-	// @Autowired
+	@Autowired
 	private IRODSSession irodsSession;
-	// @Autowired
+	@Autowired
 	private IRODSAccessObjectFactory irodsAccessObjectFactory;
-	// @Autowired
+	@Autowired
 	private IrodsAuthenticationProvider irodsAuthenticationProvider;
 	@Autowired
 	private IrodsBasicAuthEntryPoint irodsBasicAuthEntryPoint;
@@ -54,7 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	 * @param restConfiguration
 	 *            the restConfiguration to set
 	 */
-	public void setRestConfiguration(RestConfiguration restConfiguration) {
+	public void setRestConfiguration(final RestConfiguration restConfiguration) {
 		this.restConfiguration = restConfiguration;
 	}
 
@@ -69,7 +69,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	 * @param irodsSession
 	 *            the irodsSession to set
 	 */
-	public void setIrodsSession(IRODSSession irodsSession) {
+	public void setIrodsSession(final IRODSSession irodsSession) {
 		this.irodsSession = irodsSession;
 	}
 
@@ -84,20 +84,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	 * @param irodsAccessObjectFactory
 	 *            the irodsAccessObjectFactory to set
 	 */
-	public void setIrodsAccessObjectFactory(IRODSAccessObjectFactory irodsAccessObjectFactory) {
+	public void setIrodsAccessObjectFactory(final IRODSAccessObjectFactory irodsAccessObjectFactory) {
 		this.irodsAccessObjectFactory = irodsAccessObjectFactory;
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.springframework.security.config.annotation.web.configuration.
 	 * WebSecurityConfigurerAdapter
 	 * #configure(org.springframework.security.config
 	 * .annotation.web.builders.HttpSecurity)
 	 */
 	@Override
-	protected void configure(HttpSecurity http) throws Exception {
+	protected void configure(final HttpSecurity http) throws Exception {
 		log.info("configure()");
 
 		http.authenticationProvider(irodsAuthenticationProvider).authorizeRequests().anyRequest().authenticated().and()
@@ -117,7 +117,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	 * @param irodsAuthenticationProvider
 	 *            the irodsAuthenticationProvider to set
 	 */
-	public void setIrodsAuthenticationProvider(IrodsAuthenticationProvider irodsAuthenticationProvider) {
+	public void setIrodsAuthenticationProvider(final IrodsAuthenticationProvider irodsAuthenticationProvider) {
 		this.irodsAuthenticationProvider = irodsAuthenticationProvider;
 	}
 
@@ -132,7 +132,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	 * @param irodsBasicAuthEntryPoint
 	 *            the irodsBasicAuthEntryPoint to set
 	 */
-	public void setIrodsBasicAuthEntryPoint(IrodsBasicAuthEntryPoint irodsBasicAuthEntryPoint) {
+	public void setIrodsBasicAuthEntryPoint(final IrodsBasicAuthEntryPoint irodsBasicAuthEntryPoint) {
 		this.irodsBasicAuthEntryPoint = irodsBasicAuthEntryPoint;
 	}
 

@@ -31,7 +31,7 @@ public class ConnectionCloseFilter implements Filter {
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 	@Autowired
 	private RestConfiguration restConfiguration;
-	// @Autowired
+	@Autowired
 	private IRODSAccessObjectFactory irodsAccessObjectFactory;
 
 	/**

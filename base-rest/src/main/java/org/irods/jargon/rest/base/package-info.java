@@ -1,9 +1,8 @@
 /**
- * 
+ *
  */
 /**
- * @author mconway
- * Base app
+ * @author mconway Base app
  *
  */
 package org.irods.jargon.rest.base;

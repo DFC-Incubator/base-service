@@ -3,6 +3,8 @@
  */
 package org.irods.jargon.rest.configuration;
 
+import javax.annotation.PostConstruct;
+
 import org.irods.jargon.core.connection.ClientServerNegotiationPolicy;
 import org.irods.jargon.core.connection.ClientServerNegotiationPolicy.SslNegotiationPolicy;
 import org.irods.jargon.core.connection.IRODSSession;
@@ -10,6 +12,8 @@ import org.irods.jargon.core.connection.SettableJargonProperties;
 import org.irods.jargon.core.pub.IRODSAccessObjectFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * 
@@ -18,10 +22,14 @@ import org.slf4j.LoggerFactory;
  *         jargon properties system
  *
  */
+@Component
 public class StartupConfigurator {
 
+	@Autowired
 	private RestConfiguration restConfiguration;
+	@Autowired
 	private IRODSSession irodsSession;
+	@Autowired
 	private IRODSAccessObjectFactory irodsAccessObjectFactory;
 
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
@@ -65,6 +73,7 @@ public class StartupConfigurator {
 	 * props and <code>IRODSSession</code> so that property configuration can be
 	 * accomplished
 	 */
+	@PostConstruct
 	public void init() {
 		log.info("init()");
 
@@ -80,16 +89,12 @@ public class StartupConfigurator {
 
 		log.info("configuration with:{}", restConfiguration);
 
-		SettableJargonProperties props = new SettableJargonProperties(
-				irodsSession.getJargonProperties());
-		props.setComputeChecksumAfterTransfer(restConfiguration
-				.isComputeChecksum());
-		log.info("set checksum policy to:{}",
-				restConfiguration.isComputeChecksum());
+		SettableJargonProperties props = new SettableJargonProperties(irodsSession.getJargonProperties());
+		props.setComputeChecksumAfterTransfer(restConfiguration.isComputeChecksum());
+		log.info("set checksum policy to:{}", restConfiguration.isComputeChecksum());
 
 		SslNegotiationPolicy policyToSet = ClientServerNegotiationPolicy
-				.findSslNegotiationPolicyFromString(restConfiguration
-						.getSslNegotiationPolicy());
+				.findSslNegotiationPolicyFromString(restConfiguration.getSslNegotiationPolicy());
 
 		log.info("policyToSet:{}", policyToSet);
 
@@ -112,8 +117,7 @@ public class StartupConfigurator {
 	 * @param irodsAccessObjectFactory
 	 *            the irodsAccessObjectFactory to set
 	 */
-	public void setIrodsAccessObjectFactory(
-			IRODSAccessObjectFactory irodsAccessObjectFactory) {
+	public void setIrodsAccessObjectFactory(IRODSAccessObjectFactory irodsAccessObjectFactory) {
 		this.irodsAccessObjectFactory = irodsAccessObjectFactory;
 	}
 

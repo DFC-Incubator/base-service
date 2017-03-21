@@ -1,46 +1,63 @@
 package org.irods.jargon.rest.base.model;
 
 import java.util.Objects;
-import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2017-02-10T11:17:25.080-05:00")
+/**
+ * Tag
+ */
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.SpringCodegen", date = "2017-03-21T10:48:32.605-04:00")
+
 public class Tag   {
-  
   private String userName = null;
+
   private String tagData = null;
 
-  /**
+  public Tag userName(String userName) {
+    this.userName = userName;
+    return this;
+  }
+
+   /**
    * User name that created tag (will include user#zone)
-   **/
-  
-  @JsonProperty("userName")
+   * @return userName
+  **/
+  @ApiModelProperty(value = "User name that created tag (will include user#zone)")
   public String getUserName() {
     return userName;
   }
+
   public void setUserName(String userName) {
     this.userName = userName;
   }
 
-  /**
+  public Tag tagData(String tagData) {
+    this.tagData = tagData;
+    return this;
+  }
+
+   /**
    * Actual tag applied by the given user
-   **/
-  
-  @JsonProperty("tagData")
+   * @return tagData
+  **/
+  @ApiModelProperty(value = "Actual tag applied by the given user")
   public String getTagData() {
     return tagData;
   }
+
   public void setTagData(String tagData) {
     this.tagData = tagData;
   }
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -48,8 +65,8 @@ public class Tag   {
       return false;
     }
     Tag tag = (Tag) o;
-    return Objects.equals(userName, tag.userName) &&
-        Objects.equals(tagData, tag.tagData);
+    return Objects.equals(this.userName, tag.userName) &&
+        Objects.equals(this.tagData, tag.tagData);
   }
 
   @Override
@@ -72,7 +89,7 @@ public class Tag   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

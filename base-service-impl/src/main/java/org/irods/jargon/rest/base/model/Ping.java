@@ -1,33 +1,43 @@
 package org.irods.jargon.rest.base.model;
 
 import java.util.Objects;
-import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2017-02-10T15:05:04.724-05:00")
+/**
+ * Ping
+ */
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.SpringCodegen", date = "2017-03-21T10:48:32.605-04:00")
+
 public class Ping   {
-  
   private Float pingTime = null;
 
-  /**
+  public Ping pingTime(Float pingTime) {
+    this.pingTime = pingTime;
+    return this;
+  }
+
+   /**
    * milliseconds to connect to iRODS and get a response from the perspective of the mid-tier service
-   **/
-  
-  @JsonProperty("pingTime")
+   * @return pingTime
+  **/
+  @ApiModelProperty(value = "milliseconds to connect to iRODS and get a response from the perspective of the mid-tier service")
   public Float getPingTime() {
     return pingTime;
   }
+
   public void setPingTime(Float pingTime) {
     this.pingTime = pingTime;
   }
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -35,7 +45,7 @@ public class Ping   {
       return false;
     }
     Ping ping = (Ping) o;
-    return Objects.equals(pingTime, ping.pingTime);
+    return Objects.equals(this.pingTime, ping.pingTime);
   }
 
   @Override
@@ -57,7 +67,7 @@ public class Ping   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }
