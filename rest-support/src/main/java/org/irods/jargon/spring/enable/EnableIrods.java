@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.irods.jargon.spring.enable;
 
@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Import;
 @Import(IrodsJargonConfiguration.class)
 /**
  * Base Spring wiring for jargon beans
- * 
+ *
  * @author mconway
  *
  */

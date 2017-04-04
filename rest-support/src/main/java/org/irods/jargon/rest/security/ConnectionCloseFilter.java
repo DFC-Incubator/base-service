@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.irods.jargon.rest.security;
 
@@ -21,9 +21,9 @@ import org.springframework.stereotype.Component;
 
 /**
  * Servlet filter implements basic auth
- * 
+ *
  * @author Mike Conway - DICE (www.irods.org)
- * 
+ *
  */
 @Component
 public class ConnectionCloseFilter implements Filter {
@@ -35,14 +35,14 @@ public class ConnectionCloseFilter implements Filter {
 	private IRODSAccessObjectFactory irodsAccessObjectFactory;
 
 	/**
-	 * 
+	 *
 	 */
 	public ConnectionCloseFilter() {
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see javax.servlet.Filter#init(javax.servlet.FilterConfig)
 	 */
 	@Override
@@ -52,7 +52,7 @@ public class ConnectionCloseFilter implements Filter {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest,
 	 * javax.servlet.ServletResponse, javax.servlet.FilterChain)
 	 */

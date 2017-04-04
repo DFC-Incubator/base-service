@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.irods.jargon.rest.configuration;
 
@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * 
+ *
  * @author Mike Conway Wired-in class that takes configuration and core jargon
  *         components and injects appropriate configuration into the underlying
  *         jargon properties system
@@ -49,7 +49,7 @@ public class StartupConfigurator {
 	 * @param restConfiguration
 	 *            the restConfiguration to set
 	 */
-	public void setRestConfiguration(RestConfiguration restConfiguration) {
+	public void setRestConfiguration(final RestConfiguration restConfiguration) {
 		this.restConfiguration = restConfiguration;
 	}
 
@@ -64,7 +64,7 @@ public class StartupConfigurator {
 	 * @param irodsSession
 	 *            the irodsSession to set
 	 */
-	public void setIrodsSession(IRODSSession irodsSession) {
+	public void setIrodsSession(final IRODSSession irodsSession) {
 		this.irodsSession = irodsSession;
 	}
 
@@ -117,7 +117,7 @@ public class StartupConfigurator {
 	 * @param irodsAccessObjectFactory
 	 *            the irodsAccessObjectFactory to set
 	 */
-	public void setIrodsAccessObjectFactory(IRODSAccessObjectFactory irodsAccessObjectFactory) {
+	public void setIrodsAccessObjectFactory(final IRODSAccessObjectFactory irodsAccessObjectFactory) {
 		this.irodsAccessObjectFactory = irodsAccessObjectFactory;
 	}
 

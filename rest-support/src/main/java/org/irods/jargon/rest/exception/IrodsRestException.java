@@ -4,14 +4,14 @@ import org.irods.jargon.core.exception.JargonException;
 
 /**
  * General exception in rest processing
- * 
+ *
  * @author Mike Conway - DICE (www.irods.org)
- * 
+ *
  */
 public class IrodsRestException extends JargonException {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 9017853086935903803L;
 
@@ -41,8 +41,7 @@ public class IrodsRestException extends JargonException {
 	 * @param cause
 	 * @param underlyingIRODSExceptionCode
 	 */
-	public IrodsRestException(final Throwable cause,
-			final int underlyingIRODSExceptionCode) {
+	public IrodsRestException(final Throwable cause, final int underlyingIRODSExceptionCode) {
 		super(cause, underlyingIRODSExceptionCode);
 	}
 
@@ -50,8 +49,7 @@ public class IrodsRestException extends JargonException {
 	 * @param message
 	 * @param underlyingIRODSExceptionCode
 	 */
-	public IrodsRestException(final String message,
-			final int underlyingIRODSExceptionCode) {
+	public IrodsRestException(final String message, final int underlyingIRODSExceptionCode) {
 		super(message, underlyingIRODSExceptionCode);
 	}
 
@@ -60,8 +58,7 @@ public class IrodsRestException extends JargonException {
 	 * @param cause
 	 * @param underlyingIRODSExceptionCode
 	 */
-	public IrodsRestException(final String message, final Throwable cause,
-			final int underlyingIRODSExceptionCode) {
+	public IrodsRestException(final String message, final Throwable cause, final int underlyingIRODSExceptionCode) {
 		super(message, cause, underlyingIRODSExceptionCode);
 	}
 

@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.irods.jargon.rest.utils;
 
@@ -7,23 +7,23 @@ import org.irods.jargon.rest.configuration.RestConfiguration;
 
 /**
  * Various utils for handling REST configuration information
- * 
+ *
  * @author Mike Conway - DICE (www.irods.org) see http://code.renci.org for
  *         trackers, access info, and documentation
- * 
+ *
  */
 public class ConfigurationUtils {
 
 	/**
 	 * Build an exemplar .irodsEnv file based on the configuration for a given
 	 * user name
-	 * 
+	 *
 	 * @param restConfiguration
 	 * @param userName
 	 * @return
 	 */
-	public static String buildIrodsEnvForConfigAndUser(
-			final RestConfiguration restConfiguration, final String userName) {
+	public static String buildIrodsEnvForConfigAndUser(final RestConfiguration restConfiguration,
+			final String userName) {
 
 		if (restConfiguration == null) {
 			throw new IllegalArgumentException("null restConfiguration");

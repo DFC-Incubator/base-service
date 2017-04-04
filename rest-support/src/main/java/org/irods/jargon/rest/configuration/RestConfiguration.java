@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.irods.jargon.rest.configuration;
 
@@ -17,9 +17,9 @@ import org.springframework.stereotype.Component;
 
 /**
  * Pojo containing configuration information
- * 
+ *
  * @author Mike Conway - DICE (www.irods.org)
- * 
+ *
  */
 @Component
 @PropertySource("file:///etc/irods-ext/irods-rest.properties")
@@ -184,7 +184,7 @@ public class RestConfiguration {
 	 * @param allowCors
 	 *            the allowCors to set
 	 */
-	public void setAllowCors(boolean allowCors) {
+	public void setAllowCors(final boolean allowCors) {
 		this.allowCors = allowCors;
 	}
 
@@ -199,7 +199,7 @@ public class RestConfiguration {
 	 * @param corsOrigins
 	 *            the corsOrigins to set
 	 */
-	public void setCorsOrigins(List<String> corsOrigins) {
+	public void setCorsOrigins(final List<String> corsOrigins) {
 		this.corsOrigins = corsOrigins;
 	}
 
@@ -214,7 +214,7 @@ public class RestConfiguration {
 	 * @param corsMethods
 	 *            the corsMethods to set
 	 */
-	public void setCorsMethods(List<String> corsMethods) {
+	public void setCorsMethods(final List<String> corsMethods) {
 		this.corsMethods = corsMethods;
 	}
 
@@ -229,13 +229,13 @@ public class RestConfiguration {
 	 * @param corsAllowCredentials
 	 *            the corsAllowCredentials to set
 	 */
-	public void setCorsAllowCredentials(boolean corsAllowCredentials) {
+	public void setCorsAllowCredentials(final boolean corsAllowCredentials) {
 		this.corsAllowCredentials = corsAllowCredentials;
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -295,7 +295,7 @@ public class RestConfiguration {
 	 * @param authType
 	 *            the authType to set
 	 */
-	public void setAuthType(String authType) {
+	public void setAuthType(final String authType) {
 		this.authType = authType;
 	}
 
@@ -303,7 +303,7 @@ public class RestConfiguration {
 		return corsAllowedHeaders;
 	}
 
-	public void setCorsAllowedHeaders(List<String> corsAllowedHeaders) {
+	public void setCorsAllowedHeaders(final List<String> corsAllowedHeaders) {
 		this.corsAllowedHeaders = corsAllowedHeaders;
 	}
 
@@ -318,7 +318,7 @@ public class RestConfiguration {
 	 * @param utilizePackingStreams
 	 *            the utilizePackingStreams to set
 	 */
-	public void setUtilizePackingStreams(boolean utilizePackingStreams) {
+	public void setUtilizePackingStreams(final boolean utilizePackingStreams) {
 		this.utilizePackingStreams = utilizePackingStreams;
 	}
 
@@ -333,7 +333,7 @@ public class RestConfiguration {
 	 * @param sslNegotiationPolicy
 	 *            the sslNegotiationPolicy to set
 	 */
-	public void setSslNegotiationPolicy(String sslNegotiationPolicy) {
+	public void setSslNegotiationPolicy(final String sslNegotiationPolicy) {
 		this.sslNegotiationPolicy = sslNegotiationPolicy;
 	}
 
@@ -348,7 +348,7 @@ public class RestConfiguration {
 	 * @param computeChecksum
 	 *            the computeChecksum to set
 	 */
-	public void setComputeChecksum(boolean computeChecksum) {
+	public void setComputeChecksum(final boolean computeChecksum) {
 		this.computeChecksum = computeChecksum;
 	}
 
@@ -356,7 +356,7 @@ public class RestConfiguration {
 		return env;
 	}
 
-	public void setEnv(Environment env) {
+	public void setEnv(final Environment env) {
 		this.env = env;
 	}
 

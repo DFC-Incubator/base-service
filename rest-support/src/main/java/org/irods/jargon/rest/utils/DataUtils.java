@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.irods.jargon.rest.utils;
 
@@ -12,14 +12,14 @@ import org.irods.jargon.core.exception.JargonException;
 /**
  * General utilities for manipulating parameters and paths coming in from
  * requests
- * 
+ *
  * @author Mike Conway - DICE (www.irods.org)
- * 
+ *
  */
 public class DataUtils {
 
 	/**
-	 * 
+	 *
 	 */
 	private DataUtils() {
 	}
@@ -30,14 +30,14 @@ public class DataUtils {
 	 * <p/>
 	 * Paths in URLs must be encoded because of the wide range of characters
 	 * that are used in iRODS absolute paths.
-	 * 
+	 *
 	 * @param pathInfo
 	 * @param encoding
 	 * @return
 	 * @throws JargonException
 	 */
-	public static String buildDecodedPathFromURLPathInfo(final String pathInfo,
-			final String encoding) throws JargonException {
+	public static String buildDecodedPathFromURLPathInfo(final String pathInfo, final String encoding)
+			throws JargonException {
 
 		if (pathInfo == null) {
 			throw new IllegalArgumentException("null pathInfo");
@@ -51,7 +51,7 @@ public class DataUtils {
 		 * If the url extra path info for the collection has been encoded
 		 * (necessary if it contains any special character info), then it should
 		 * decode with a leading / char.
-		 * 
+		 *
 		 * If it's not been encoded, then it will lack a leading slash, as this
 		 * is truncated during the URL mapping process in the framework.
 		 */
@@ -81,14 +81,13 @@ public class DataUtils {
 	/**
 	 * Given an iRODS absolute path, and an encoding scheme, encode for use in a
 	 * URL
-	 * 
+	 *
 	 * @param path
 	 * @param encoding
 	 * @return
 	 * @throws JargonException
 	 */
-	public static String encodeIrodsAbsolutePath(final String path,
-			final String encoding) throws JargonException {
+	public static String encodeIrodsAbsolutePath(final String path, final String encoding) throws JargonException {
 
 		if (path == null) {
 			throw new IllegalArgumentException("null path");

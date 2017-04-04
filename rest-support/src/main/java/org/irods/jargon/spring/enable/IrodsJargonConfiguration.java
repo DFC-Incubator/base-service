@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.irods.jargon.spring.enable;
 
@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * Spring bean wiring supporting the {@link EnableIrods} annotation
- * 
+ *
  * @author mconway
  *
  */

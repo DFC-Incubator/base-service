@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.irods.jargon.rest.security;
 
@@ -17,22 +17,19 @@ import org.springframework.stereotype.Component;
 
 /**
  * Basic auth entry point for spring security
- * 
+ *
  * @author mconway
- * 
+ *
  */
 @Component
 public class IrodsBasicAuthEntryPoint extends BasicAuthenticationEntryPoint {
 
 	@Override
-	public void commence(final HttpServletRequest request,
-			final HttpServletResponse response,
-			final AuthenticationException authException) throws IOException,
-			ServletException {
+	public void commence(final HttpServletRequest request, final HttpServletResponse response,
+			final AuthenticationException authException) throws IOException, ServletException {
 		// Authentication failed, send error response.
 		response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-		response.addHeader("WWW-Authenticate", "Basic realm=" + getRealmName()
-				+ "");
+		response.addHeader("WWW-Authenticate", "Basic realm=" + getRealmName() + "");
 
 		PrintWriter writer = response.getWriter();
 		writer.println("HTTP Status 401 : " + authException.getMessage());

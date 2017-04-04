@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.irods.jargon.rest.security;
 
@@ -21,7 +21,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * Spring security authentication provider for iRODS
- * 
+ *
  * @author mconway
  *
  */
@@ -39,12 +39,12 @@ public class IrodsAuthenticationProvider implements AuthenticationProvider {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.springframework.security.authentication.AuthenticationProvider#
 	 * authenticate(org.springframework.security.core.Authentication)
 	 */
 	@Override
-	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+	public Authentication authenticate(final Authentication authentication) throws AuthenticationException {
 
 		log.info("authenticate()");
 		if (authentication == null) {
@@ -86,7 +86,7 @@ public class IrodsAuthenticationProvider implements AuthenticationProvider {
 	}
 
 	@Override
-	public boolean supports(Class<?> clazz) {
+	public boolean supports(final Class<?> clazz) {
 		return clazz == UsernamePasswordAuthenticationToken.class;
 	}
 
@@ -101,7 +101,7 @@ public class IrodsAuthenticationProvider implements AuthenticationProvider {
 	 * @param restConfiguration
 	 *            the restConfiguration to set
 	 */
-	public void setRestConfiguration(RestConfiguration restConfiguration) {
+	public void setRestConfiguration(final RestConfiguration restConfiguration) {
 		this.restConfiguration = restConfiguration;
 	}
 
@@ -116,7 +116,7 @@ public class IrodsAuthenticationProvider implements AuthenticationProvider {
 	 * @param irodsSession
 	 *            the irodsSession to set
 	 */
-	public void setIrodsSession(IRODSSession irodsSession) {
+	public void setIrodsSession(final IRODSSession irodsSession) {
 		this.irodsSession = irodsSession;
 	}
 
@@ -131,7 +131,7 @@ public class IrodsAuthenticationProvider implements AuthenticationProvider {
 	 * @param irodsAccessObjectFactory
 	 *            the irodsAccessObjectFactory to set
 	 */
-	public void setIrodsAccessObjectFactory(IRODSAccessObjectFactory irodsAccessObjectFactory) {
+	public void setIrodsAccessObjectFactory(final IRODSAccessObjectFactory irodsAccessObjectFactory) {
 		this.irodsAccessObjectFactory = irodsAccessObjectFactory;
 	}
 

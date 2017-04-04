@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.irods.jargon.rest.security;
 
@@ -12,14 +12,14 @@ import org.springframework.security.core.GrantedAuthority;
 
 /**
  * Authentication containing iRODS credentials information
- * 
+ *
  * @author mconway
  *
  */
 public class IrodsAuthentication implements Authentication {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = -2505172295435781501L;
 	private final IRODSAccount irodsAccount;
@@ -29,8 +29,7 @@ public class IrodsAuthentication implements Authentication {
 	 * @param irodsAccount
 	 * @param authResponse
 	 */
-	public IrodsAuthentication(IRODSAccount irodsAccount,
-			AuthResponse authResponse) {
+	public IrodsAuthentication(final IRODSAccount irodsAccount, final AuthResponse authResponse) {
 		super();
 		if (irodsAccount == null) {
 			throw new IllegalArgumentException("null irodsAccount");
@@ -44,7 +43,7 @@ public class IrodsAuthentication implements Authentication {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.security.Principal#getName()
 	 */
 	@Override
@@ -54,7 +53,7 @@ public class IrodsAuthentication implements Authentication {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.springframework.security.core.Authentication#getAuthorities()
 	 */
 	@Override
@@ -65,7 +64,7 @@ public class IrodsAuthentication implements Authentication {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.springframework.security.core.Authentication#getCredentials()
 	 */
 	@Override
@@ -76,7 +75,7 @@ public class IrodsAuthentication implements Authentication {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.springframework.security.core.Authentication#getDetails()
 	 */
 	@Override
@@ -87,7 +86,7 @@ public class IrodsAuthentication implements Authentication {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.springframework.security.core.Authentication#getPrincipal()
 	 */
 	@Override
@@ -97,7 +96,7 @@ public class IrodsAuthentication implements Authentication {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.springframework.security.core.Authentication#isAuthenticated()
 	 */
 	@Override
@@ -121,7 +120,7 @@ public class IrodsAuthentication implements Authentication {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -139,7 +138,7 @@ public class IrodsAuthentication implements Authentication {
 	}
 
 	@Override
-	public void setAuthenticated(boolean arg0) throws IllegalArgumentException {
+	public void setAuthenticated(final boolean arg0) throws IllegalArgumentException {
 		// unused, will get authenticated via the enclosed iRODS AuthResponse
 	}
 

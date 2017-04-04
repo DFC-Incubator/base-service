@@ -19,21 +19,18 @@ public class IrodsAuthenticationProviderTest {
 
 		String user = "test";
 		String password = "test";
-		Authentication auth = new UsernamePasswordAuthenticationToken(user,
-				password);
+		Authentication auth = new UsernamePasswordAuthenticationToken(user, password);
 
-		IRODSAccount irodsAccount = IRODSAccount.instance("host", 1247, "test",
-				"test", "", "zone", "", AuthScheme.STANDARD);
+		IRODSAccount irodsAccount = IRODSAccount.instance("host", 1247, "test", "test", "", "zone", "",
+				AuthScheme.STANDARD);
 		AuthResponse authResponse = new AuthResponse();
 		authResponse.setSuccessful(true);
 		authResponse.setAuthenticatedIRODSAccount(irodsAccount);
 		authResponse.setAuthenticatedIRODSAccount(irodsAccount);
 
-		IRODSAccessObjectFactory iaf = Mockito
-				.mock(IRODSAccessObjectFactory.class);
+		IRODSAccessObjectFactory iaf = Mockito.mock(IRODSAccessObjectFactory.class);
 
-		Mockito.when(iaf.authenticateIRODSAccount(irodsAccount)).thenReturn(
-				authResponse);
+		Mockito.when(iaf.authenticateIRODSAccount(irodsAccount)).thenReturn(authResponse);
 
 		IRODSSession sessionMock = Mockito.mock(IRODSSession.class);
 

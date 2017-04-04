@@ -1,8 +1,9 @@
 /**
- * 
+ *
  */
 /**
  * General security methods, including Spring Security support
+ * 
  * @author mconway
  *
  */

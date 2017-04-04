@@ -1,13 +1,13 @@
 /**
- * 
+ *
  */
 package org.irods.jargon.rest.utils;
 
 /**
  * Misc constants used in library
- * 
+ *
  * @author Mike Conway - DICE (www.irods.org)
- * 
+ *
  */
 public class RestConstants {
 

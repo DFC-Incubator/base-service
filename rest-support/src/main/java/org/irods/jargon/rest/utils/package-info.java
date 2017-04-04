@@ -1,5 +1,6 @@
 /**
  * Utilities for REST
+ * 
  * @author Mike Conway - DICE (www.irods.org)
  *
  */
